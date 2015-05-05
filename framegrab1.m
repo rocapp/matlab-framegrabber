@@ -1,14 +1,7 @@
 function [] = FrameGrab( vidObj,name )
 %FrameGrab Saves video frames as images
-%   input: video object, output: frame saved as VIDEO_frame_#.png
-
-% numframes = pres_debate_vid.Numberofframes;
-% for f=1:numframes
-%     thisframe=read(pres_debate_vid,f);
-%   figure(1);imagesc(thisframe);
-%   thisfile=sprintf('output/%s_frame_%04d.png',VideoObj,f);
-%   imwrite(thisframe,thisfile);
-% end
+%   input: video object, and name of input folder
+%   output: frame saved as VIDEO_frame_#.png
 
 foldername = name;
 mkdir('output',foldername);
@@ -26,7 +19,6 @@ while hasFrame(vidObj)
 end
 
 for f=1:k-1
-%     thisframe = image(s(f).cdata);
     figure(1);imshow(s(f).cdata);
     set(1,'Position',[100 100 1280 720])
     colormap gray;
